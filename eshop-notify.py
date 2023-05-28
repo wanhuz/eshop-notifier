@@ -26,7 +26,7 @@ except IOError:
 eshop_notifier_db = EshopNotifierDB('config/watchlist.txt', 'config/pricelist.json')
 eshop_notifier_db.init_db()
 
-eshop_price_checker = EshopPricesCheck(eshop_notifier_db.db, eshop_notifier_db.db_query, 'watchlist.txt')
+eshop_price_checker = EshopPricesCheck(eshop_notifier_db.db, eshop_notifier_db.db_query, 'config/watchlist.txt')
 game_with_discount = eshop_price_checker.get_game_with_discount()
 
 eshop_prices_extension = EshopPricesExtension()

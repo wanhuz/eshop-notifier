@@ -1,11 +1,8 @@
 version: "3"
 services:
   app:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    image: eshop-notify
+    image: wanhuz/eshop-notify
     container_name: eshop-notify
     restart: unless-stopped
     volumes:
-      - /path/to/config/:/config
+      - /path/to/config:/usr/src/app/config
