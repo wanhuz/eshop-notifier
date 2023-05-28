@@ -6,11 +6,11 @@ import sys
 
 # Read environment file
 try:
-    with open('env.txt', 'r') as env_file:
+    with open('config/env.txt', 'r') as env_file:
         RECEIVER_EMAIL = []
         for line in env_file:
             line = line.split(" ")
-            
+
             if (line[0] == 'SENDER_EMAIL'):
                 SENDER_EMAIL = line[2].strip().replace('\'', '')
             elif (line[0] == 'RECEIVER_EMAIL'):
@@ -23,7 +23,7 @@ except IOError:
 
 
 # Program execution starts here
-eshop_notifier_db = EshopNotifierDB('watchlist.txt', 'pricelist.json')
+eshop_notifier_db = EshopNotifierDB('config/watchlist.txt', 'config/pricelist.json')
 eshop_notifier_db.init_db()
 
 eshop_price_checker = EshopPricesCheck(eshop_notifier_db.db, eshop_notifier_db.db_query, 'watchlist.txt')
