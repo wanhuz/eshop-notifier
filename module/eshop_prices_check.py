@@ -24,24 +24,25 @@ class EshopPricesCheck:
 
                 # Watchlist.txt
                 game_url = line[0]
-                target_price = float(line[1])
 
                 # Eshop-price.com
                 eshop_data = eshop.get_prices_from_url(game_url)
                 current_price = eshop_data[0]['price']['current_price'].replace("RM", "")
                 current_price = float(current_price)
+                original_price = eshop_data[0]['price']['original_price'].replace("RM", "")
+                original_price = float(original_price)
 
                 # Pricelist.json
                 previous_price = self.__db.get(self.__db_query.game_url == game_url)['price']
 
-                if(self.should_notify(current_price, target_price, previous_price)):
+                if(self.should_notify(current_price, original_price, previous_price)):
                     game_below_min.append(game_url)
 
         return game_below_min
     
     @staticmethod
-    def should_notify(current_eshop_price, watchlist_target_price, pricelist_eshop_price):
-        if ((current_eshop_price < watchlist_target_price) and (current_eshop_price < pricelist_eshop_price)):
+    def should_notify(current_price, original_price, previous_price):
+        if ((current_price < original_price) and (current_price < previous_price)):
             return True
         return False
     
