@@ -24,7 +24,7 @@ eshop_notifier_db = EshopNotifierDB('watchlist.txt', 'pricelist.json')
 eshop_notifier_db.init_db()
 
 eshop_price_checker = EshopPricesCheck(eshop_notifier_db.db, eshop_notifier_db.db_query, 'watchlist.txt')
-game_with_discount = eshop_price_checker.get_game_below_target_price()
+game_with_discount = eshop_price_checker.get_game_with_discount()
 
 eshop_prices_extension = EshopPricesExtension()
 eshop_emailer = EshopNotifierEmail(SENDER_EMAIL, RECEIVER_EMAIL, SENDER_PASS)

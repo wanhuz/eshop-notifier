@@ -19,6 +19,10 @@ class EshopNotifierDB:
     @property
     def highest_price(self) -> int:
         return self.__HIGHEST_PRICE
+    
+    def get_game_relative_url(self, absolute_game_url : str) -> str:
+        relative_game_url = absolute_game_url.replace('https://eshop-prices.com', '')
+        return relative_game_url
 
     # Initialize pricelist records and add new url if its not added
     def init_db(self):
@@ -30,6 +34,7 @@ class EshopNotifierDB:
                 line = line.strip()           
                 line = line.split(",")
                 game_url = line[0].replace('\n','')
+                game_url = self.get_game_relative_url(game_url)
 
                 if(len(self.db.search(db_query.game_url == game_url)) < 1):
                     self.db.insert({'game_url' : game_url, 'price' : self.__HIGHEST_PRICE})

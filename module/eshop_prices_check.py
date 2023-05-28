@@ -15,8 +15,8 @@ class EshopPricesCheck:
 
 
 # Compare prices from two data, get game title if condition is fulfilled
-    def get_game_below_target_price(self) -> list:
-        game_below_min = []
+    def get_game_with_discount(self) -> list:
+        games_with_discount = []
 
         with open(self.__watchlist_filename, 'r') as reader:
             for line in reader:
@@ -36,9 +36,9 @@ class EshopPricesCheck:
                 previous_price = self.__db.get(self.__db_query.game_url == game_url)['price']
 
                 if(self.should_notify(current_price, original_price, previous_price)):
-                    game_below_min.append(game_url)
+                    games_with_discount.append(game_url)
 
-        return game_below_min
+        return games_with_discount
     
     @staticmethod
     def should_notify(current_price, original_price, previous_price):
