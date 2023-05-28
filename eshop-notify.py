@@ -53,7 +53,7 @@ def job():
         game_details = eshop_prices_extension.get_game_details(game_url)
         eshop_notifier_db.record_price(game_url, game_details['current_price'], eshop_notifier_db.db)
 
-        with open('email_template.html', 'r') as email_template:
+        with open('assets/email_template.html', 'r') as email_template:
             message = eshop_emailer.compose_message(email_template.read(), 
                                 game_details['game_url'],
                                 game_details['game_image_url'],
