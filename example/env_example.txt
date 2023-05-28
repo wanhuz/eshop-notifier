@@ -11,8 +11,9 @@ How to generate app password for your gmail:
     f. Copy app password
 '''
 # For receiver_email, remove or add as many address you want seperated by semicolon ';'
-
+# Change check_price_every_x_minute to how many minute to repeat the script. Default is 15 minutes
 
 SENDER_EMAIL = 'example@gmail.com'
 RECEIVER_EMAIL = 'example2@gmail.com';'example3@gmail.com'
 SENDER_PASS = 'app_password_here'
+CHECK_PRICE_EVERY_X_MINUTE = 15
