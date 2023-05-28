@@ -3,8 +3,10 @@ import requests
 from eshop_prices import EshopPrices
 
 class EshopPricesExtension:
-    def __init__(self) -> None:
+    def __init__(self, currency, currency_sign) -> None:
         self.__BASE_URL = "https://eshop-prices.com/"
+        self.__CURRENCY = currency
+        self.__CURRENCY_SIGN = currency_sign
 
     @property
     def base_url(self) -> str:
@@ -47,18 +49,18 @@ class EshopPricesExtension:
         return f"Error getting game description from url! (Status = {response.status_code})"
     
     def get_game_details(self, game_url : str) -> list:
-        eshop = EshopPrices(currency="MYR")
+        eshop = EshopPrices(self.__CURRENCY)
         eshop_data = eshop.get_prices_from_url(game_url)
 
         game_title = game_url
         game_title = game_title[game_title.index("-") + 1:]
         game_title = game_title.replace('-', ' ').capitalize()
 
-        current_price = eshop_data[0]['price']['current_price'].replace("RM", "")
-        current_price = float(current_price)
+        current_price = eshop_data[0]['price']['current_price'].replace(self.__CURRENCY_SIGN, "")
+        current_price = float(current_price.replace(',','.'))
 
-        original_price = eshop_data[0]['price']['original_price'].replace("RM", "")
-        original_price = float(original_price)        
+        original_price = eshop_data[0]['price']['original_price'].replace(self.__CURRENCY_SIGN, "")
+        original_price = float(original_price.replace(',' , '.'))        
 
         game_details = {'game_title': game_title, 
                         'game_url': game_url,

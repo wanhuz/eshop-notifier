@@ -1,15 +1,15 @@
 from eshop_prices import EshopPrices
 from tinydb import TinyDB, Query
 
-eshop = EshopPrices(currency="MYR")
-
 class EshopPricesCheck:
 
-    def __init__(self, db, db_query, watchlist_filename) -> None:
+    def __init__(self, db, db_query, watchlist_filename, currency, currency_sign) -> None:
         self.__db = db
         self.__db_query = db_query
         self.__watchlist_filename = watchlist_filename
         self.__BASE_URL = 'https://eshop-prices.com'
+        self.__eshop = EshopPrices(currency)
+        self.__CURRENCY_SIGN = currency_sign
 
     def lines_that_contain(string, fp):
         return [line for line in fp if string in line]
@@ -28,12 +28,12 @@ class EshopPricesCheck:
                 game_url = game_url.replace(self.__BASE_URL, '')
 
                 # Eshop-price.com
-                eshop_data = eshop.get_prices_from_url(game_url)
+                eshop_data = self.__eshop.get_prices_from_url(game_url)
 
-                current_price = eshop_data[0]['price']['current_price'].replace("RM", "")
-                current_price = float(current_price)
-                original_price = eshop_data[0]['price']['original_price'].replace("RM", "")
-                original_price = float(original_price)
+                current_price = eshop_data[0]['price']['current_price'].replace(self.__CURRENCY_SIGN, "")
+                current_price = float(current_price.replace(',','.'))
+                original_price = eshop_data[0]['price']['original_price'].replace(self.__CURRENCY_SIGN, "")
+                original_price = float(original_price.replace(',','.'))
 
                 # Pricelist.json
                 previous_price = self.__db.get(self.__db_query.game_url == game_url)['price']
