@@ -19,12 +19,12 @@ try:
                 for receiver_email in line[2].strip().split(';'):
                     RECEIVER_EMAIL.append(receiver_email.replace('\'', ''))
             elif (line[0] == 'SENDER_PASS'):
-                SENDER_PASS = line[2].replace('\'', '')
+                SENDER_PASS = line[2].replace('\'', '').strip()
             elif (line[0] == 'CHECK_PRICE_EVERY_X_MINUTE'):
-                MINUTE_TO_REPEAT = line[2].replace('\'', '')
+                MINUTE_TO_REPEAT = line[2].strip()
                 MINUTE_TO_REPEAT = int(MINUTE_TO_REPEAT)
             elif (line[0] == 'CURRENCY'):
-                CURRENCY = line[2].replace('\'', '')
+                CURRENCY = line[2].strip()
 except IOError:
     sys.exit('Environment file could not be found. Create env file using env_example.txt')
 
@@ -35,7 +35,7 @@ try:
                 CURRENCY_SIGN = line.split(',')[1].strip()
                 break
 except IOError:
-    sys.exit('Currency code file could not be found.  Ensure currency-code.txt exists at asset/currency-code.txt')
+    sys.exit('Currency code file could not be found.  Ensure currency-code.txt exists at assets/currency-code.txt')
 
 
 # Create main job
