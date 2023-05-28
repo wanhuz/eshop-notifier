@@ -9,6 +9,7 @@ class EshopPricesCheck:
         self.__db = db
         self.__db_query = db_query
         self.__watchlist_filename = watchlist_filename
+        self.__BASE_URL = 'https://eshop-prices.com'
 
     def lines_that_contain(string, fp):
         return [line for line in fp if string in line]
@@ -24,9 +25,11 @@ class EshopPricesCheck:
 
                 # Watchlist.txt
                 game_url = line[0]
+                game_url = game_url.replace(self.__BASE_URL, '')
 
                 # Eshop-price.com
                 eshop_data = eshop.get_prices_from_url(game_url)
+
                 current_price = eshop_data[0]['price']['current_price'].replace("RM", "")
                 current_price = float(current_price)
                 original_price = eshop_data[0]['price']['original_price'].replace("RM", "")

@@ -2,24 +2,27 @@ from module.eshop_notifier_db import *
 from module.eshop_notifier_email import *
 from module.eshop_prices_check import *
 from module.eshop_prices_extension import *
+import sys
+
+# Read environment file
+try:
+    with open('env.txt', 'r') as env_file:
+        RECEIVER_EMAIL = []
+        for line in env_file:
+            line = line.split(" ")
+            
+            if (line[0] == 'SENDER_EMAIL'):
+                SENDER_EMAIL = line[2].strip().replace('\'', '')
+            elif (line[0] == 'RECEIVER_EMAIL'):
+                for receiver_email in line[2].strip().split(';'):
+                    RECEIVER_EMAIL.append(receiver_email.replace('\'', ''))
+            elif (line[0] == 'SENDER_PASS'):
+                SENDER_PASS = line[2].replace('\'', '')
+except IOError:
+    sys.exit('Environment file could not be found. Create env file using env_example.txt')
 
 
-'''
-How to generate app password for your gmail: 
-
-1. Set up 2-step verification (if not already) at https://myaccount.google.com/u/1/security
-2. Generate an App password:
-    a. Go to your Google account
-    b. Go to Security
-    c. Go to 2-steps verification
-    d. Go to App passwords
-    e. Generate a new one (you may use custom app and give it a custom name)
-    f. Copy app password
-'''
-SENDER_EMAIL = '<SENDER EMAIL>'
-SENDER_PASS = '<APP PASSWORD>'
-RECEIVER_EMAIL = ['<RECEIVER ADDRESS 1', '<RECEIVER ADDRESS 2>']
-
+# Program execution starts here
 eshop_notifier_db = EshopNotifierDB('watchlist.txt', 'pricelist.json')
 eshop_notifier_db.init_db()
 

@@ -1,0 +1,18 @@
+'''
+How to generate app password for your gmail: 
+
+1. Set up 2-step verification (if not already) at https://myaccount.google.com/u/1/security
+2. Generate an App password:
+    a. Go to your Google account
+    b. Go to Security
+    c. Go to 2-steps verification
+    d. Go to App passwords
+    e. Generate a new one (you may use custom app and give it a custom name)
+    f. Copy app password
+'''
+# For receiver_email, remove or add as many address you want seperated by semicolon ';'
+
+
+SENDER_EMAIL = 'example@gmail.com'
+RECEIVER_EMAIL = 'example2@gmail.com';'example3@gmail.com'
+SENDER_PASS = 'app_password_here'
