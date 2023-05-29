@@ -1,5 +1,8 @@
 # eshop-prices.com game wishlist notifier
 
+![image](https://github.com/wanhuz/eshop-notifier/assets/12682216/1b23d983-26c7-4d2f-87f6-e0216b75ce56)
+
+
 ## Overview
 
 Eshop-notifier is a tool that alert user through email for game discount similar to Steam game wishlist. It can automatically check if there is any discount on user game wishlist and then send an email to user. 
