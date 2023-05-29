@@ -39,7 +39,7 @@ This application is written and tested on Python 3.11.3
 
 1. Create a folder named 'config' inside application directory
 2. Create your env.txt and watchlist.txt and paste it inside the 'config' directory
-3. Run 'pip install --upgrade Cython'
+3. Run 'pip install --upgrade Cython' from terminal/powershell
 4. Run 'pip install --no-cache-dir -r requirements.txt' inside application directory
 5. Execute the script 'python ./eshop-notify.py'
 
