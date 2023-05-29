@@ -37,6 +37,7 @@ Change /path/to/config to your env.txt and wishlist.txt directory.
 ## Running with Python
 This application is written and tested on Python 3.11.3
 
+0. Ensure Python is installed
 1. Create a folder named 'config' inside application directory
 2. Create your env.txt and watchlist.txt and paste it inside the 'config' directory
 3. Run 'pip install --upgrade Cython' from terminal/powershell
