@@ -11,7 +11,7 @@ Eshop-notifier is a tool that alert user through email for game discount similar
 - automatically check if there is any game on user wishlist that is on discount 
 - send beautiful email to alert user on game discount
 
-### Setup
+## Setup
 For this application to work, you need have a gmail account to send email from.
 
 Then create two file: 
@@ -34,7 +34,7 @@ services:
 
 Change /path/to/config to your env.txt and wishlist.txt directory.
 
-## Running with Python
+### Running with Python
 This application is written and tested on Python 3.11.3
 
 0. Ensure Python is installed
@@ -58,7 +58,7 @@ How to generate SENDER_PASS for your gmail:
     6. Copy app password and put it to SENDER_PASS in env.txt
 
 
-### Important
+## Important
 - Some currency sign that is supposed to be suffix will be a prefix. For example, Swedish Krona should be 20 kr., instead it will presented as kr. 20.
 - Only gmail is supported
 - Use of eshop logo should fall under Nominative Fair Use, please don't sue me Nintendo.
