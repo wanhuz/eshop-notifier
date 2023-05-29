@@ -61,6 +61,7 @@ How to generate SENDER_PASS for your gmail:
 ### Important
 - Some currency sign that is supposed to be suffix will be a prefix. For example, Swedish Krona.
 - Only gmail is supported
+- Use of eshop logo should fall under Nominative Fair Use, please don't sue me Nintendo.
   
 ## Special thanks
 - Special thanks to hudsonbrendon for [eshop-prices.com API](https://github.com/hudsonbrendon/nintendo-eshop-prices)
