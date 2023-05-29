@@ -49,12 +49,12 @@ How to generate SENDER_PASS for your gmail:
 0. Log in to your gmail account
 1. Set up 2-step verification (if not already) at https://myaccount.google.com/u/1/security
 2. Generate an App password:
-    a. Go to your Google account
-    b. Go to Security
-    c. Go to 2-steps verification
-    d. Go to App passwords
-    e. Generate a new one (you may use custom app and give it a custom name)
-    f. Copy app password and put it to SENDER_PASS in env.txt
+    1. Go to your Google account
+    2. Go to Security
+    3. Go to 2-steps verification
+    4. Go to App passwords
+    5. Generate a new one (you may use custom app and give it a custom name)
+    6. Copy app password and put it to SENDER_PASS in env.txt
 
 
 ### Important
