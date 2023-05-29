@@ -15,7 +15,7 @@ Eshop-notifier is a tool that alert user through email for game discount similar
 For this application to work, you need have a gmail account to send email from.
 
 Then create two file: 
-- env.txt : used to store sensitive information such as your gmail username, password and sender email address, as well as extra settings. See example/env_template.txt.
+- env.txt : used to store sensitive information such as your gmail username, password and receiver email address, as well as extra settings. See example/env_template.txt.
 - watchlist.txt : used to add or remove game that you want to be notitified. See example/watchlist_template.txt.
 
 ### Running with Docker Compose (Recommended)
