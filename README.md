@@ -59,7 +59,7 @@ How to generate SENDER_PASS for your gmail:
 
 
 ### Important
-- Some currency sign that is supposed to be suffix will be a prefix. For example, Swedish Krona.
+- Some currency sign that is supposed to be suffix will be a prefix. For example, Swedish Krona should be 20 kr., instead it will presented as kr. 20.
 - Only gmail is supported
 - Use of eshop logo should fall under Nominative Fair Use, please don't sue me Nintendo.
   
