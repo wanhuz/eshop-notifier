@@ -1,6 +1,6 @@
 import bs4
 import requests
-from eshop_prices import EshopPrices
+from .eshop import EshopPrices
 
 class EshopPricesExtension:
     def __init__(self, currency, currency_sign) -> None:
@@ -14,7 +14,7 @@ class EshopPricesExtension:
     
     @property
     def headers(self) -> str:
-        return {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:85.0) Gecko/20100101 Firefox/85.0"}
+        return {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36"}
 
     def get_url_image_from_url(self, game_url: str) -> str:
         request_url = f"{self.base_url}{game_url}"

@@ -1,4 +1,4 @@
-from eshop_prices import EshopPrices
+from .eshop import EshopPrices
 from tinydb import TinyDB, Query
 
 class EshopPricesCheck:
