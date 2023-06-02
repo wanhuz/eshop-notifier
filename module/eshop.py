@@ -75,7 +75,6 @@ class EshopPrices:
 
     def get_prices_from_url(self, game_url: str) -> List[dict]:
         request_url = f"{self.base_url}{game_url}?currency={self.currency}"
-        print(request_url)
         
         response = requests.get(
             request_url,

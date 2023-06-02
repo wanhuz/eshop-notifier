@@ -1,6 +1,6 @@
 import bs4
 import requests
-from eshop import EshopPrices
+from .eshop import EshopPrices
 
 class EshopPricesExtension:
     def __init__(self, currency, currency_sign) -> None:
